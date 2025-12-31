@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><derivbot>
+  <settings>
+    <asset>XAUUSD</asset>
+    <timeframe>1m</timeframe>
+    <stake>1</stake>
+    <max_trades>50</max_trades>
+    <martingale enabled="true">
+      <multiplier>2</multiplier>
+      <max_levels>5</max_levels>
+    </martingale>
+  </settings>
+  <indicators>
+    <ema period="20" type="close" />
+    <rsi period="14" />
+  </indicators>
+  <rules>
+    <buy>
+      <condition>price &gt; ema and rsi &lt; 30</condition>
+      <stop_loss pips="10" />
+      <take_profit pips="15" />
+    </buy>
+    <sell>
+      <condition>price &lt; ema and rsi &gt; 70</condition>
+      <stop_loss pips="10" />
+      <take_profit pips="15" />
+    </sell>
+  </rules>
+</derivbot>
