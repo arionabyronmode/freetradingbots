@@ -1,0 +1,29 @@
+<xml
+xmlns="https://developers.google.com/blockly/xml">
+  <block type="trade" x="50" y="50">
+    <statement name="MARKET">
+      <block type="market">
+        <field name="MARKET_LIST">synthetic_index</field>
+        <field name="SUBMARKET_LIST">random_index</field>
+        <field name="SYMBOL_LIST">R_75</field>
+      </block>
+    </statement>
+    <statement name="CONTRACT">
+      <block type="trade_definition">
+        <field name="TRADE_TYPE">rise_fall</field>
+        <field name="CURRENCY">USD</field>
+        <value name="STAKE">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="DURATION">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <field name="DURATION_UNIT">m</field>
+      </block>
+    </statement>
+  </block>
+</xml>
