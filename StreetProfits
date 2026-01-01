@@ -1,0 +1,92 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="stake">stake</variable>
+  </variables>
+
+  <!-- TRADE SETUP -->
+  <block type="trade_definition" x="40" y="20">
+    <field name="MARKET_LIST">synthetic_index</field>
+    <field name="SUBMARKET_LIST">boom_crash</field>
+    <field name="SYMBOL_LIST">BOOM1000</field>
+    <field name="TRADETYPECAT_LIST">digits</field>
+    <field name="TRADETYPE_LIST">even_odd</field>
+    <field name="CONTRACT_TYPE_LIST">even</field>
+    <field name="DURATIONTYPE_LIST">t</field>
+    <field name="DURATION">1</field>
+    <value name="AMOUNT">
+      <shadow type="math_number">
+        <field name="NUM">0.35</field>
+      </shadow>
+    </value>
+  </block>
+
+  <!-- AUTO SPIKE DETECTOR -->
+  <block type="trade_purchase" x="40" y="220">
+    <field name="PURCHASE_LIST">EVEN</field>
+    <value name="CONDITION">
+      <block type="logic_and">
+        <value name="A">
+          <block type="logic_or">
+            <value name="A">
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="last_digit"></block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">8</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="last_digit"></block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">9</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="B">
+          <block type="logic_or">
+            <value name="A">
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="previous_digit"></block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">8</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="previous_digit"></block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">9</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+
+</xml>
